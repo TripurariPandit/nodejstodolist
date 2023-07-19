@@ -1,0 +1,191 @@
+#container {
+    width: 50vw;
+    margin: auto;
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.todo-info {
+    height: 3.5rem;
+    width: 100%;
+    border-top: 1px solid black;
+    padding: 0.5rem 0rem;
+}
+
+label {
+    font-size: 1.2rem;
+}
+
+div input {
+    border: none;
+    outline: none;
+    padding: 0.6re 0rem;
+    font-size: 1rem;
+}
+
+input[type="text"]{
+    width: 100%;
+}
+
+.todoFocus{
+    background-color: lightgrey;
+}
+
+::-webkit-datetime-edit-text {
+    padding: 0 0.2rem;
+}
+
+::-webkit-inner-spin-button {
+    display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+    background: transparent;
+}
+
+#info {
+    display: flex;
+}
+
+.category-container {
+    flex-basis: 50%;
+}
+
+.category-container:nth-child(2n) {
+    padding-left: 1rem;
+    border-left: 1px solid black;
+}
+
+select {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    width: 97%;
+}
+
+.btn-container {
+    text-align: center;
+    border-top: 1px solid black;
+}
+
+.btn {
+    padding: 1rem 0.5rem;
+    outline: none;
+    color: white;
+    width: 10rem;
+    margin: 2rem 0.1rem 1rem 0.1rem;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    text-decoration: none;
+}
+
+.btn i {
+    padding-right: 6px;
+}
+
+#add {
+    background-color: black;
+}
+
+#delete {
+    background-color: red;
+}
+
+
+/* To show the todo list item */
+
+ul{
+    padding: 0;
+    width: 97%;
+    margin: auto;
+}
+
+ul li {
+    list-style: none;
+    border-top: 1px solid black;
+}
+
+.todo-show-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.7rem 0rem;
+}
+
+.check-box {
+    flex-basis: 7%;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    height: 1.2rem;
+    width: 1.2rem;
+    border: 2px solid black;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    margin: 0;
+}
+
+input[type="checkbox"]:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 0.7rem;
+    color: white;
+    display: none;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #5bcd3e;
+}
+
+input[type="checkbox"]:checked:after {
+    display: block;
+}
+
+.disc-date {
+    flex-basis: 80%;
+}
+
+.disc-date p {
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin: 0.3rem 0rem;
+}
+
+.disc-date span {
+    font-weight: 200;
+    font-size: 1rem;
+    color: grey;
+}
+
+.disc-date i {
+    font-weight: 200;
+    font-size: 1.3rem;
+    color: grey;
+    padding-right: 0.3rem;
+}
+
+.category-list {
+    flex-basis: 13%;
+}
+
+.category-list p {
+    padding: 0.5rem 1rem;
+    background-color: rebeccapurple;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+    width: 5rem;
+    text-align: center;
+}

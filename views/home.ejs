@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/e5aec61db5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-1/css/all.min.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>TODO App</h1>
+        <form action="/create-todo" method="POST" id="new-todo">
+            <div class="todo-info" id="todo-info-desc">
+                <label for="desc">DESCRIPTION</label><br>
+                <input type="text" name="desclist" id="desc" placeholder="what do you need to do?" required>
+            </div>
+            <div class="todo-info" id="info">
+                <div class="category-container">
+                    <label for="">CATEGORY</label><br>
+                    <select name="category" id="cars">
+                        <option value="volvo">Choose a category</option>
+                        <option value="Personal">Personal</option>
+                        <option value="School">School</option>
+                        <option value="Work">Work</option>
+                        <option value="Cleaning">Cleaning</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="category-container">
+                    <label for="due">DUE DATE</label><br>
+                    <input type="date" name="duedate" id="due" required>
+                </div>
+            </div>
+            <div class="btn-container ">
+                <button type="submit" id="add" class="btn">
+                    <i class="fa-solid fa-plus"></i>
+                    ADD TASKS
+                </button>
+                <a href="/delete-todo/?id=<%= todo_list._id %>" id="delete" class="btn">
+                    <!-- <a href="/delete-todo/?id=64b2567fae27c2c2d6fc70db" id="delete" class="btn"> -->
+                    <i class="fa-solid fa-trash-can"></i>
+                    DELETE TASKS
+                </a>
+            </div>
+        </form>
+
+        <!-- for displaying the todos -->
+        <ul>
+            <% for(i of todo_list){ %>
+                <li class="todo">
+                    <div class="todo-show-container">
+                        <div class="check-box">
+                            <input type="checkbox" id="checkbox-<%= i._id %> " name="vehicle1" value="<%= i._id %>">
+                        </div>
+                        <div class="disc-date">
+                            <p>
+                                <%= i.description %>
+                            </p>
+                            <div>
+                                <i class="fa-regular fa-calendar-days"></i>
+                                <span>
+                                    <%= i.formattedDate %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <p>
+                                <%= i.category %>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <%}%>
+        </ul>
+    </div>
+
+    <!-- Script tag -->
+    <script>
+        const checkboxes = document.querySelectorAll("input[type='checkbox']");
+        const deleteLink = document.getElementById("delete");
+        deleteLink.addEventListener("click", function (event) {
+            // Prevents the default behavior of the link
+            event.preventDefault();
+
+            checkboxes.forEach(function (checkbox) {
+                if (checkbox.checked) {
+                    const value = checkbox.value;
+                    const url = "/delete-todo/?id=" + value;
+                    //    Redirect to the URL with the query parameter
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
